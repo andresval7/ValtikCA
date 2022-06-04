@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 Core", "1 Core", "{EC9B86BA-FCC1-4F5F-9408-1B247522135D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValtikCA.Application", "Application\ValtikCA.Application.csproj", "{6200685D-57BC-4D90-BA58-A195EB4397F0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValtikCA.Domain", "ValtikCA.Domain\ValtikCA.Domain.csproj", "{3008A114-8A3B-45C6-AC3B-250220471146}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 Infrastructure", "2 Infrastructure", "{CDE2AA57-206F-44F5-B576-5FC16B7E1CDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Presentation", "3 Presentation", "{334BA133-0E34-4D81-A7D2-88CC389A5397}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValtikCA.Infrastructure", "ValtikCA.Infrastructure\ValtikCA.Infrastructure.csproj", "{76D71476-F6F4-4660-BDE3-3530D7528818}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValtikCA.API", "ValtikCA.API\ValtikCA.API.csproj", "{E1257193-7EE8-43E9-85B1-3E6A18A529F2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6200685D-57BC-4D90-BA58-A195EB4397F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6200685D-57BC-4D90-BA58-A195EB4397F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6200685D-57BC-4D90-BA58-A195EB4397F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6200685D-57BC-4D90-BA58-A195EB4397F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3008A114-8A3B-45C6-AC3B-250220471146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3008A114-8A3B-45C6-AC3B-250220471146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3008A114-8A3B-45C6-AC3B-250220471146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3008A114-8A3B-45C6-AC3B-250220471146}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D71476-F6F4-4660-BDE3-3530D7528818}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D71476-F6F4-4660-BDE3-3530D7528818}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D71476-F6F4-4660-BDE3-3530D7528818}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D71476-F6F4-4660-BDE3-3530D7528818}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1257193-7EE8-43E9-85B1-3E6A18A529F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1257193-7EE8-43E9-85B1-3E6A18A529F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1257193-7EE8-43E9-85B1-3E6A18A529F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1257193-7EE8-43E9-85B1-3E6A18A529F2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{6200685D-57BC-4D90-BA58-A195EB4397F0} = {EC9B86BA-FCC1-4F5F-9408-1B247522135D}
+		{3008A114-8A3B-45C6-AC3B-250220471146} = {EC9B86BA-FCC1-4F5F-9408-1B247522135D}
+		{76D71476-F6F4-4660-BDE3-3530D7528818} = {CDE2AA57-206F-44F5-B576-5FC16B7E1CDE}
+		{E1257193-7EE8-43E9-85B1-3E6A18A529F2} = {334BA133-0E34-4D81-A7D2-88CC389A5397}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F2D16E28-62BB-4C23-B5EE-06172714A729}
+	EndGlobalSection
+EndGlobal
