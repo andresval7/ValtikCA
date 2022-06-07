@@ -15,7 +15,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 Presentation", "3 Present
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValtikCA.Infrastructure", "ValtikCA.Infrastructure\ValtikCA.Infrastructure.csproj", "{76D71476-F6F4-4660-BDE3-3530D7528818}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValtikCA.API", "ValtikCA.API\ValtikCA.API.csproj", "{E1257193-7EE8-43E9-85B1-3E6A18A529F2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ValtikCA.API", "ValtikCA.API\ValtikCA.API.csproj", "{E1257193-7EE8-43E9-85B1-3E6A18A529F2}"
+	ProjectSection(ProjectDependencies) = postProject
+		{76D71476-F6F4-4660-BDE3-3530D7528818} = {76D71476-F6F4-4660-BDE3-3530D7528818}
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

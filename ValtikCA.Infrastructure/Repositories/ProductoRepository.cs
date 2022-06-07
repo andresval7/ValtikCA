@@ -23,14 +23,14 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public TblProducto GetProductoById(string Id)
         {
-            var productoExistente = _context.TblProductos.
-                FirstOrDefault(x => x.IdProducto.Equals(Id));
+                var productoExistente = _context.TblProductos.
+                    FirstOrDefault(x => x.IdProducto.Equals(Id));
 
-            return productoExistente;
+                return productoExistente;
 
         }
 
-        public void InsertProducto(TblProducto producto)
+        public void InsertProductoById(TblProducto producto)
         {
             _context.TblProductos.Add(producto);
             _context.SaveChanges();
@@ -65,10 +65,6 @@ namespace ValtikCA.Infrastructure.Repositories
                 _context.SaveChanges();
             }
                 
-
         }
-
-
-
     }
 }
