@@ -11,4 +11,10 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\Application\ValtikCA.Application.csproj" />
+    <ProjectReference Include="..\ValtikCA.Domain\ValtikCA.Domain.csproj" />
+    <ProjectReference Include="..\ValtikCA.Infrastructure\ValtikCA.Infrastructure.csproj" />
+  </ItemGroup>
+
 </Project>

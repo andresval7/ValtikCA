@@ -22,6 +22,7 @@ namespace ValtikCA.Infrastructure.Persistence
         public virtual DbSet<TblCliente> TblClientes { get; set; } = null!;
         public virtual DbSet<TblOrdene> TblOrdenes { get; set; } = null!;
         public virtual DbSet<TblProducto> TblProductos { get; set; } = null!;
+        public IEnumerable<ProductoCategorium> ProductoCategorium { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

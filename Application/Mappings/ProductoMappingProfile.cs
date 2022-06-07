@@ -23,6 +23,5 @@ namespace ValtikCA.Application.Mappings
             CreateMap<TblProducto, DeleteProductoRequest>();
 
         }
-        
     }
 }
