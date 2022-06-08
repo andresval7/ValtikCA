@@ -18,13 +18,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<ProductoCategorium> GetProductoCategorium()
         {
-            return _context.ProductoCategorium;
+            return _context.ProductoCategoria;
         }
 
-        public ProductoCategorium GetProductoCategoriumById(string Id)
+        public ProductoCategorium GetProductoCategoriumById(int Id)
         {
-            var idProdCategoriaExistente = _context.ProductoCategorium.
-                FirstOrDefault(x => x.IdProdCategoria.Equals(Id));
+            var idProdCategoriaExistente = _context.ProductoCategoria.
+                FirstOrDefault(x => x.IdProdCategoria == Id);
 
             return idProdCategoriaExistente;
 
@@ -32,14 +32,14 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void InsertProductoCategorium(ProductoCategorium idProdcategoria)
         {
-            _context.ProductoCategorium.Add(idProdcategoria);
+            _context.ProductoCategoria.Add(idProdcategoria);
             _context.SaveChanges();
         }
 
         public void UpdateProductoCategoriumById(ProductoCategorium idProdcategoria)
         {
             var idProdCategoriaExistente = _context.ProductoCategorium
-                .FirstOrDefault(x => x.IdProdCategoria.Equals(idProdcategoria.IdProdCategoria));
+                .FirstOrDefault(x => x.IdProdCategoria == (idProdcategoria.IdProdCategoria));
             if (idProdCategoriaExistente != null)
             {
                 idProdCategoriaExistente.IdProducto = idProdcategoria.IdProducto;
@@ -53,7 +53,7 @@ namespace ValtikCA.Infrastructure.Repositories
         public void DeleteProductoCategoriumById(ProductoCategorium idProdcategoria)
         {
             var idProdCategoriaExistente = _context.ProductoCategorium
-                .FirstOrDefault(x => x.IdProdCategoria.Equals(idProdcategoria.IdProdCategoria));
+                .FirstOrDefault(x => x.IdProdCategoria == (idProdcategoria.IdProdCategoria));
             if (idProdCategoriaExistente != null)
             {
                 _context.Remove(idProdCategoriaExistente);

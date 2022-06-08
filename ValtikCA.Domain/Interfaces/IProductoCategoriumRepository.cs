@@ -11,7 +11,7 @@ namespace ValtikCA.Domain.Interfaces
     public interface IProductoCategoriumRepository
     {
         public IEnumerable<ProductoCategorium> GetProductoCategorium();
-        public ProductoCategorium GetProductoCategoriumById(string Id);
+        public ProductoCategorium GetProductoCategoriumById(int Id);
         public void InsertProductoCategorium(ProductoCategorium idProdcategoria);
         public void UpdateProductoCategoriumById(ProductoCategorium idProdcategoria);
         public void DeleteProductoCategoriumById(ProductoCategorium idProdcategoria);

@@ -23,6 +23,9 @@ builder.Services.AddApplicationServices();
 builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
 builder.Services.AddTransient<IClienteRepository, ClienteRepository>();
 builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
+builder.Services.AddTransient<IProductoCategoriumRepository, ProductoCategoriumRepository>();
+builder.Services.AddTransient<IProductosXordenRepository, ProductosXordenRepository>();
+builder.Services.AddTransient<ITblOrdeneRepository, TblOrdeneRepository>();
 
 /*
 builder.Services.AddDbContext<CinemaContext>(optionsBuilder => optionsBuilder.UseSqlServer("name=ConnectionStrings:Cinema"));

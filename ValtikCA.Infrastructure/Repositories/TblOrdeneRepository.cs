@@ -10,29 +10,59 @@ namespace ValtikCA.Infrastructure.Repositories
 {
     public class TblOrdeneRepository : ITblOrdeneRepository
     {
-        public void DeleteTblOrdenes(TblOrdene tblOrdene)
+        private DBTiendaValtikContext _context;
+        public TblOrdeneRepository(DBTiendaValtikContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public IEnumerable<TblOrdene> GetTblOrdenes()
+        public IEnumerable<TblOrdene> GetOrden()
         {
-            throw new NotImplementedException();
+            return _context.TblOrdenes;
         }
 
-        public TblOrdene GetTblOrdenesById(string Id)
+        public TblOrdene GetOrdenById(int Id)
         {
-            throw new NotImplementedException();
+            var ordenExistente = _context.TblOrdenes.
+                FirstOrDefault(x => x.IdOrden == (Id));
+
+            return ordenExistente;
+
         }
 
-        public void InsertTblOrdenes(TblOrdene tblOrdene)
+        public void InsertOrdenById(TblOrdene orden)
         {
-            throw new NotImplementedException();
+            _context.TblOrdenes.Add(orden);
+            _context.SaveChanges();
         }
 
-        public void UpdateTblOrdenes(TblOrdene tblOrdene)
+        public void UpdateOrdenById(TblOrdene orden)
         {
-            throw new NotImplementedException();
+            var ordenExistente = _context.TblOrdenes
+                .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));
+            if (ordenExistente != null)
+            {
+                ordenExistente.IdCliente = orden.IdCliente;
+                ordenExistente.Cantidad = orden.Cantidad;
+                ordenExistente.DireccionEnvio = orden.DireccionEnvio;
+                ordenExistente.FechaOrden = orden.FechaOrden;
+                ordenExistente.EstadoOrden = orden.EstadoOrden;
+                
+                _context.SaveChanges();
+            }
+
+        }
+
+        public void DeleteOrdenById(TblOrdene orden)
+        {
+            var ordenExistente = _context.TblOrdenes
+                .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));
+            if (ordenExistente != null)
+            {
+                _context.Remove(ordenExistente);
+                _context.SaveChanges();
+            }
+
         }
     }
 }

@@ -9,11 +9,11 @@ namespace ValtikCA.Domain.Interfaces
 {
     public interface ITblOrdeneRepository
     {
-        public IEnumerable<TblOrdene> GetTblOrdenes();
-        public TblOrdene GetTblOrdenesById(string Id);
-        public void InsertTblOrdenes(TblOrdene tblOrdene);
-        public void UpdateTblOrdenes(TblOrdene tblOrdene);
-        public void DeleteTblOrdenes(TblOrdene tblOrdene);
+        public IEnumerable<TblOrdene> GetOrden();
+        public TblOrdene GetOrdenById(int Id);
+        public void InsertOrdenById(TblOrdene orden);
+        public void UpdateOrdenById(TblOrdene orden);
+        public void DeleteOrdenById(TblOrdene orden);
 
     }
 }

@@ -10,7 +10,7 @@ namespace ValtikCA.Domain.Interfaces
     public interface IProductosXordenRepository
     {
         public IEnumerable<ProductosXorden> GetProductoXorden();
-        public ProductosXorden GetProductoXordenById(string Id);
+        public ProductosXorden GetProductoXordenById(int Id);
         public void InsertProductoXorden(ProductosXorden prodXOrden);
         public void UpdateProductoXordenById(ProductosXorden prodXOrden);
         public void DeleteProductoXordenById(ProductosXorden prodXOrden);

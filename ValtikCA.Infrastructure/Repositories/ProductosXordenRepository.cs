@@ -21,10 +21,10 @@ namespace ValtikCA.Infrastructure.Repositories
             return _context.ProductosXordens;
         }
 
-        public ProductosXorden GetProductoXordenById(string Id)
+        public ProductosXorden GetProductoXordenById(int Id)
         {
             var prodOrdenExistente = _context.ProductosXordens.
-                FirstOrDefault(x => x.IdProducto.Equals(Id));
+                FirstOrDefault(x => x.IdProdOrden == (Id));
 
             return prodOrdenExistente;
 
@@ -39,7 +39,7 @@ namespace ValtikCA.Infrastructure.Repositories
         public void UpdateProductoXordenById(ProductosXorden prodXOrden)
         {
             var prodOrdenExistente = _context.ProductosXordens
-                .FirstOrDefault(x => x.IdProducto.Equals(prodXOrden.IdProducto));
+                .FirstOrDefault(x => x.IdProdOrden == (prodXOrden.IdProdOrden));
             if (prodOrdenExistente != null)
             {
                 prodOrdenExistente.IdProdOrden = prodXOrden.IdProdOrden;
@@ -56,7 +56,7 @@ namespace ValtikCA.Infrastructure.Repositories
         public void DeleteProductoXordenById(ProductosXorden prodXOrden)
         {
             var prodOrdenExistente = _context.ProductosXordens
-                .FirstOrDefault(x => x.IdProdOrden.Equals(prodXOrden.IdProdOrden));
+                .FirstOrDefault(x => x.IdProdOrden == (prodXOrden.IdProdOrden));
             if (prodOrdenExistente != null)
             {
                 _context.Remove(prodOrdenExistente);
