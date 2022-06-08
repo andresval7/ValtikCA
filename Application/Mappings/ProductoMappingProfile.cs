@@ -13,14 +13,14 @@ namespace ValtikCA.Application.Mappings
     {
         public ProductoMappingProfile()
         {
-            CreateMap<CreateProductoRequest, TblProducto>();
-            CreateMap<TblProducto, CreateProductoRequest>();
-            CreateMap<UpdateProductoRequest, TblProducto>();
-            CreateMap<TblProducto, UpdateProductoRequest>();
-            CreateMap<ReadProductoRequest, TblProducto>();
-            CreateMap<TblProducto, ReadProductoRequest>();
-            CreateMap<DeleteProductoRequest, TblProducto>();
-            CreateMap<TblProducto, DeleteProductoRequest>();
+            CreateMap<CreateProductoRequest, Producto>();
+            CreateMap<Producto, CreateProductoRequest>();
+            CreateMap<UpdateProductoRequest, Producto>();
+            CreateMap<Producto, UpdateProductoRequest>();
+            CreateMap<ReadProductoRequest, Producto>();
+            CreateMap<Producto, ReadProductoRequest>();
+            CreateMap<DeleteProductoRequest, Producto>();
+            CreateMap<Producto, DeleteProductoRequest>();
 
         }
     }

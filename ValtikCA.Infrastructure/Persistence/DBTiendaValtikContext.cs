@@ -16,13 +16,13 @@ namespace ValtikCA.Infrastructure.Persistence
         {
         }
 
-        public virtual DbSet<ProductoCategorium> ProductoCategoria { get; set; } = null!;
+        public virtual DbSet<ProductoCategoria> ProductoCategoria { get; set; } = null!;
         public virtual DbSet<ProductosXorden> ProductosXordens { get; set; } = null!;
-        public virtual DbSet<TblCategorium> TblCategoria { get; set; } = null!;
-        public virtual DbSet<TblCliente> TblClientes { get; set; } = null!;
-        public virtual DbSet<TblOrdene> TblOrdenes { get; set; } = null!;
-        public virtual DbSet<TblProducto> TblProductos { get; set; } = null!;
-        public IEnumerable<ProductoCategorium> ProductoCategorium { get; internal set; }
+        public virtual DbSet<Categoria> TblCategoria { get; set; } = null!;
+        public virtual DbSet<Cliente> TblClientes { get; set; } = null!;
+        public virtual DbSet<Orden> TblOrdenes { get; set; } = null!;
+        public virtual DbSet<Producto> TblProductos { get; set; } = null!;
+        public IEnumerable<ProductoCategoria> ProductoCategorium { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -35,7 +35,7 @@ namespace ValtikCA.Infrastructure.Persistence
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<ProductoCategorium>(entity =>
+            modelBuilder.Entity<ProductoCategoria>(entity =>
             {
                 entity.HasKey(e => e.IdProdCategoria)
                     .HasName("PK__Producto__208D92138A310C61");
@@ -93,7 +93,7 @@ namespace ValtikCA.Infrastructure.Persistence
                     .HasConstraintName("FK__Productos__IdPro__2E1BDC42");
             });
 
-            modelBuilder.Entity<TblCategorium>(entity =>
+            modelBuilder.Entity<Categoria>(entity =>
             {
                 entity.HasKey(e => e.IdCategoria)
                     .HasName("PK__TblCateg__A3C02A10B4DB5E92");
@@ -111,7 +111,7 @@ namespace ValtikCA.Infrastructure.Persistence
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<TblCliente>(entity =>
+            modelBuilder.Entity<Cliente>(entity =>
             {
                 entity.HasKey(e => e.IdCliente)
                     .HasName("PK__TblClien__D594664268D372FA");
@@ -161,7 +161,7 @@ namespace ValtikCA.Infrastructure.Persistence
                 entity.Property(e => e.Telefono).HasColumnType("numeric(18, 0)");
             });
 
-            modelBuilder.Entity<TblOrdene>(entity =>
+            modelBuilder.Entity<Orden>(entity =>
             {
                 entity.HasKey(e => e.IdOrden)
                     .HasName("PK__TblOrden__C38F300DFA35D4CF");
@@ -191,7 +191,7 @@ namespace ValtikCA.Infrastructure.Persistence
                     .HasConstraintName("FK__TblOrdene__IdCli__2A4B4B5E");
             });
 
-            modelBuilder.Entity<TblProducto>(entity =>
+            modelBuilder.Entity<Producto>(entity =>
             {
                 entity.HasKey(e => e.IdProducto)
                     .HasName("PK__TblProdu__09889210000CD310");

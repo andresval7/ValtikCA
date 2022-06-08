@@ -13,14 +13,14 @@ namespace ValtikCA.Application.Mappings
     {
         public CategoriaMappingProfile()
         {
-            CreateMap<CreateCategoriaRequest, TblCategorium>();
-            CreateMap<TblCategorium, CreateCategoriaRequest>();
-            CreateMap<UpdateCategoriaRequest, TblCategorium>();
-            CreateMap<TblCategorium, UpdateCategoriaRequest>();
-            CreateMap<ReadCategoriaRequest, TblCategorium>();
-            CreateMap<TblCategorium, ReadCategoriaRequest>();
-            CreateMap<DeleteCategoriaRequest, TblCategorium>();
-            CreateMap<TblCategorium, DeleteCategoriaRequest>();
+            CreateMap<CreateCategoriaRequest, Categoria>();
+            CreateMap<Categoria, CreateCategoriaRequest>();
+            CreateMap<UpdateCategoriaRequest, Categoria>();
+            CreateMap<Categoria, UpdateCategoriaRequest>();
+            CreateMap<ReadCategoriaRequest, Categoria>();
+            CreateMap<Categoria, ReadCategoriaRequest>();
+            CreateMap<DeleteCategoriaRequest, Categoria>();
+            CreateMap<Categoria, DeleteCategoriaRequest>();
 
         }
     }

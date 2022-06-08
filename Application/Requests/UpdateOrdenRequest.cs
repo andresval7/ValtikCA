@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class UpdateTblOrdeneRequest
+    public class UpdateOrdenRequest
     {
         public decimal IdOrden { get; set; }
         public decimal IdCliente { get; set; }

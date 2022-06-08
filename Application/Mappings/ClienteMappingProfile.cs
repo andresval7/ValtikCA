@@ -13,14 +13,14 @@ namespace ValtikCA.Application.Mappings
     {
         public ClienteMappingProfile()
         {
-            CreateMap<CreateClienteRequest, TblCliente>();
-            CreateMap<TblCliente, CreateClienteRequest>();
-            CreateMap<UpdateClienteRequest, TblCliente>();
-            CreateMap<TblCliente, UpdateClienteRequest>();
-            CreateMap<ReadClienteRequest, TblCliente>();
-            CreateMap<TblCliente, ReadClienteRequest>();
-            CreateMap<DeleteClienteRequest, TblCliente>();
-            CreateMap<TblCliente, DeleteClienteRequest>();
+            CreateMap<CreateClienteRequest, Cliente>();
+            CreateMap<Cliente, CreateClienteRequest>();
+            CreateMap<UpdateClienteRequest, Cliente>();
+            CreateMap<Cliente, UpdateClienteRequest>();
+            CreateMap<ReadClienteRequest, Cliente>();
+            CreateMap<Cliente, ReadClienteRequest>();
+            CreateMap<DeleteClienteRequest, Cliente>();
+            CreateMap<Cliente, DeleteClienteRequest>();
 
         }
     }

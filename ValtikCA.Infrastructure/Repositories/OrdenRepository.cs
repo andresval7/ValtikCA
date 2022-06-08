@@ -8,20 +8,20 @@ using ValtikCA.Infrastructure.Persistence;
 
 namespace ValtikCA.Infrastructure.Repositories
 {
-    public class TblOrdeneRepository : ITblOrdeneRepository
+    public class OrdenRepository : IOrdenRepository
     {
         private DBTiendaValtikContext _context;
-        public TblOrdeneRepository(DBTiendaValtikContext context)
+        public OrdenRepository(DBTiendaValtikContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<TblOrdene> GetOrden()
+        public IEnumerable<Orden> GetOrden()
         {
             return _context.TblOrdenes;
         }
 
-        public TblOrdene GetOrdenById(int Id)
+        public Orden GetOrdenById(int Id)
         {
             var ordenExistente = _context.TblOrdenes.
                 FirstOrDefault(x => x.IdOrden == (Id));
@@ -30,13 +30,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void InsertOrdenById(TblOrdene orden)
+        public void InsertOrdenById(Orden orden)
         {
             _context.TblOrdenes.Add(orden);
             _context.SaveChanges();
         }
 
-        public void UpdateOrdenById(TblOrdene orden)
+        public void UpdateOrdenById(Orden orden)
         {
             var ordenExistente = _context.TblOrdenes
                 .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));
@@ -53,7 +53,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteOrdenById(TblOrdene orden)
+        public void DeleteOrdenById(Orden orden)
         {
             var ordenExistente = _context.TblOrdenes
                 .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace ValtikCA.Infrastructure.Persistence
 {
-    public partial class TblCliente
+    public partial class Cliente
     {
-        public TblCliente()
+        public Cliente()
         {
-            TblOrdenes = new HashSet<TblOrdene>();
+            TblOrdenes = new HashSet<Orden>();
         }
 
         public decimal IdCliente { get; set; }
@@ -23,6 +23,6 @@ namespace ValtikCA.Infrastructure.Persistence
         public string Provincia { get; set; } = null!;
         public decimal? CodigoPostal { get; set; }
 
-        public virtual ICollection<TblOrdene> TblOrdenes { get; set; }
+        public virtual ICollection<Orden> TblOrdenes { get; set; }
     }
 }

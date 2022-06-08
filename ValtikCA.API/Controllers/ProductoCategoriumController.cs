@@ -11,10 +11,10 @@ namespace ValtikCA.API.Controllers
     [ApiController]
     public class ProductoCategoriumController : ControllerBase
     {
-        private readonly IProductoCategoriumRepository _repository;
+        private readonly IProductoCategoriaRepository _repository;
         private readonly IMapper _mapper;
 
-        public ProductoCategoriumController(IProductoCategoriumRepository repository, IMapper mapper)
+        public ProductoCategoriumController(IProductoCategoriaRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -23,35 +23,35 @@ namespace ValtikCA.API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_repository.GetProductoCategorium());
+            return Ok(_repository.GetProductoCategoria());
         }
         [HttpGet("id")]
         public IActionResult Get(int id)
         {
-            return Ok(_repository.GetProductoCategoriumById(id));
+            return Ok(_repository.GetProductoCategoriaById(id));
         }
 
         [HttpPost]
-        public IActionResult Post(CreateProductoCategoriumRequest request)
+        public IActionResult Post(CreateProductoCategoriaRequest request)
         {
-            var prodcategoria = _mapper.Map<ProductoCategorium>(request);
-            _repository.InsertProductoCategorium(prodcategoria);
+            var prodcategoria = _mapper.Map<ProductoCategoria>(request);
+            _repository.InsertProductoCategoria(prodcategoria);
             return Ok(prodcategoria);
         }
 
         [HttpPut]
-        public IActionResult Put(UpdateProductoCategorium request)
+        public IActionResult Put(UpdateProductoCategoria request)
         {
-            var prodcategoria = _mapper.Map<ProductoCategorium>(request);
-            _repository.UpdateProductoCategoriumById(prodcategoria);
+            var prodcategoria = _mapper.Map<ProductoCategoria>(request);
+            _repository.UpdateProductoCategoriaById(prodcategoria);
             return Ok();
         }
 
         [HttpDelete]
-        public IActionResult Delete(DeleteProductoCategorium request)
+        public IActionResult Delete(DeleteProductoCategoria request)
         {
-            var prodcategoria = _mapper.Map<ProductoCategorium>(request);
-            _repository.DeleteProductoCategoriumById(prodcategoria);
+            var prodcategoria = _mapper.Map<ProductoCategoria>(request);
+            _repository.DeleteProductoCategoriaById(prodcategoria);
             return Ok();
         }
     }

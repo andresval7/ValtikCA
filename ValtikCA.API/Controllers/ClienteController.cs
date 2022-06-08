@@ -34,7 +34,7 @@ namespace ValtikCA.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateClienteRequest request)
         {
-            var cliente = _mapper.Map<TblCliente>(request);
+            var cliente = _mapper.Map<Cliente>(request);
             _repository.InsertClienteById(cliente);
             return Ok(cliente);
         }
@@ -42,7 +42,7 @@ namespace ValtikCA.API.Controllers
         [HttpPut]
         public IActionResult Put(UpdateClienteRequest request)
         {
-            var cliente = _mapper.Map<TblCliente>(request);
+            var cliente = _mapper.Map<Cliente>(request);
             _repository.UpdateClienteById(cliente);
             return Ok();
         }
@@ -50,7 +50,7 @@ namespace ValtikCA.API.Controllers
         [HttpDelete]
         public IActionResult Delete(DeleteClienteRequest request)
         {
-            var cliente = _mapper.Map<TblCliente>(request);
+            var cliente = _mapper.Map<Cliente>(request);
             _repository.DeleteClienteById(cliente);
             return Ok();
         }

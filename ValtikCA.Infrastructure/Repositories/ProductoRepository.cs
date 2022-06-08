@@ -16,12 +16,12 @@ namespace ValtikCA.Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<TblProducto> GetProducto()
+        public IEnumerable<Producto> GetProducto()
         {
             return _context.TblProductos;
         }
 
-        public TblProducto GetProductoById(string Id)
+        public Producto GetProductoById(string Id)
         {
                 var productoExistente = _context.TblProductos.
                     FirstOrDefault(x => x.IdProducto.Equals(Id));
@@ -30,13 +30,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void InsertProductoById(TblProducto producto)
+        public void InsertProductoById(Producto producto)
         {
             _context.TblProductos.Add(producto);
             _context.SaveChanges();
         }
 
-        public void UpdateProductoById(TblProducto producto)
+        public void UpdateProductoById(Producto producto)
         {
             var productoExistente = _context.TblProductos
                 .FirstOrDefault(x => x.IdProducto.Equals(producto.IdProducto));
@@ -55,7 +55,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteProductoById(TblProducto producto)
+        public void DeleteProductoById(Producto producto)
         {
             var productoExistente = _context.TblProductos
                 .FirstOrDefault(x => x.IdProducto.Equals(producto.IdProducto));

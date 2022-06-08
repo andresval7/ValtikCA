@@ -6,10 +6,8 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class CreateProductoCategoriumRequest
+    public class DeleteProductoCategoria
     {
-        public int IdProdCategoria { get; set; }
         public string IdProducto { get; set; } = null!;
-        public int IdCategoria { get; set; }
     }
 }

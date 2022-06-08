@@ -9,12 +9,12 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class TblOrdeneController : ControllerBase
+    public class OrdenController : ControllerBase
     {
-        private readonly ITblOrdeneRepository _repository;
+        private readonly IOrdenRepository _repository;
         private readonly IMapper _mapper;
 
-        public TblOrdeneController(ITblOrdeneRepository repository, IMapper mapper)
+        public OrdenController(IOrdenRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -32,25 +32,25 @@ namespace ValtikCA.API.Controllers
         }
 
         [HttpPost]
-        public IActionResult Post(CreateTblOrdeneRequest request)
+        public IActionResult Post(CreateOrdenRequest request)
         {
-            var categoria = _mapper.Map<TblOrdene>(request);
+            var categoria = _mapper.Map<Orden>(request);
             _repository.InsertOrdenById(categoria);
             return Ok(categoria);
         }
 
         [HttpPut]
-        public IActionResult Put(UpdateTblOrdeneRequest request)
+        public IActionResult Put(UpdateOrdenRequest request)
         {
-            var categoria = _mapper.Map<TblOrdene>(request);
+            var categoria = _mapper.Map<Orden>(request);
             _repository.UpdateOrdenById(categoria);
             return Ok();
         }
 
         [HttpDelete]
-        public IActionResult Delete(DeleteTblOrdeneRequest request)
+        public IActionResult Delete(DeleteOrdenRequest request)
         {
-            var categoria = _mapper.Map<TblOrdene>(request);
+            var categoria = _mapper.Map<Orden>(request);
             _repository.DeleteOrdenById(categoria);
             return Ok();
         }

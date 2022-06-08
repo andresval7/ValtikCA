@@ -12,7 +12,7 @@ namespace ValtikCA.Infrastructure.Persistence
         public int Cantidad { get; set; }
         public decimal Total { get; set; }
 
-        public virtual TblOrdene IdOrdenNavigation { get; set; } = null!;
-        public virtual TblProducto IdProductoNavigation { get; set; } = null!;
+        public virtual Orden IdOrdenNavigation { get; set; } = null!;
+        public virtual Producto IdProductoNavigation { get; set; } = null!;
     }
 }

@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace ValtikCA.Infrastructure.Persistence
 {
-    public partial class TblProducto
+    public partial class Producto
     {
-        public TblProducto()
+        public Producto()
         {
-            ProductoCategoria = new HashSet<ProductoCategorium>();
+            ProductoCategoria = new HashSet<ProductoCategoria>();
             ProductosXordens = new HashSet<ProductosXorden>();
         }
 
@@ -21,7 +21,7 @@ namespace ValtikCA.Infrastructure.Persistence
         public string? Imagen { get; set; }
         public int Stock { get; set; }
 
-        public virtual ICollection<ProductoCategorium> ProductoCategoria { get; set; }
+        public virtual ICollection<ProductoCategoria> ProductoCategoria { get; set; }
         public virtual ICollection<ProductosXorden> ProductosXordens { get; set; }
     }
 }

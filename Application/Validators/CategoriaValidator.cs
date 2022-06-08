@@ -20,4 +20,17 @@ namespace ValtikCA.Application.Validators
 
         }
     }
+
+    public class UpdateCategoriaValidator : AbstractValidator<UpdateCategoriaRequest>
+    {
+        public UpdateCategoriaValidator()
+        {
+            RuleFor(x => x.IdCategoria)
+                .NotEmpty()
+                    .WithMessage("El ID es requerido");
+            RuleFor(x => x.Nombre).NotEmpty()
+                    .WithMessage("El nombre es requerido");
+
+        }
+    }
 }

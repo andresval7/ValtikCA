@@ -35,7 +35,7 @@ namespace ValtikCA.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateProductoRequest request)
         {
-            var producto = _mapper.Map<TblProducto>(request);
+            var producto = _mapper.Map<Producto>(request);
             _repository.InsertProductoById(producto);
             return Ok(producto);
         }
@@ -43,7 +43,7 @@ namespace ValtikCA.API.Controllers
         [HttpPut]
         public IActionResult Put(UpdateProductoRequest request)
         {
-            var producto = _mapper.Map<TblProducto>(request);
+            var producto = _mapper.Map<Producto>(request);
             _repository.UpdateProductoById(producto);
             return Ok();
         }
@@ -51,7 +51,7 @@ namespace ValtikCA.API.Controllers
         [HttpDelete]
         public IActionResult Delete(DeleteProductoRequest request)
         {
-            var producto = _mapper.Map<TblProducto>(request);
+            var producto = _mapper.Map<Producto>(request);
             _repository.DeleteProductoById(producto);
             return Ok();
         }

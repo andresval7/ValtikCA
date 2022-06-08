@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class DeleteTblOrdeneRequest
+    public class DeleteOrdenRequest
     {
         public decimal IdOrden { get; set; }
     }

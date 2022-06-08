@@ -9,10 +9,10 @@ namespace ValtikCA.Domain.Interfaces
 {
     public interface ICategoriaRepository
     {
-        public IEnumerable<TblCategorium> GetCategoria();
-        public TblCategorium GetCategoriaById(int Id);
-        public void InsertCategoriaById(TblCategorium categoria);
-        public void UpdateCategoriaById(TblCategorium categoria);
-        public void DeleteCategoriaById(TblCategorium categoria);
+        public IEnumerable<Categoria> GetCategoria();
+        public Categoria GetCategoriaById(int Id);
+        public void InsertCategoriaById(Categoria categoria);
+        public void UpdateCategoriaById(Categoria categoria);
+        public void DeleteCategoriaById(Categoria categoria);
     }
 }

@@ -16,12 +16,12 @@ namespace ValtikCA.Infrastructure.Repositories
             _context = context;
         }
 
-        public IEnumerable<TblCliente> GetCliente()
+        public IEnumerable<Cliente> GetCliente()
         {
             return _context.TblClientes;
         }
 
-        public TblCliente GetClienteById(decimal  Id)
+        public Cliente GetClienteById(decimal  Id)
         {
             var clienteExistente = _context.TblClientes.
                 FirstOrDefault(x => x.IdCliente == Id);
@@ -30,13 +30,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void InsertClienteById(TblCliente cliente)
+        public void InsertClienteById(Cliente cliente)
         {
             _context.TblClientes.Add(cliente);
             _context.SaveChanges();
         }
 
-        public void UpdateClienteById(TblCliente cliente)
+        public void UpdateClienteById(Cliente cliente)
         {
             var clienteExistente = _context.TblClientes
                 .FirstOrDefault(x => x.IdCliente == cliente.IdCliente);
@@ -58,7 +58,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteClienteById(TblCliente cliente)
+        public void DeleteClienteById(Cliente cliente)
         {
             var clienteExistente = _context.TblClientes
                 .FirstOrDefault(x => x.IdCliente == cliente.IdCliente);

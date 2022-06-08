@@ -34,7 +34,7 @@ namespace ValtikCA.API.Controllers
         [HttpPost]
         public IActionResult Post(CreateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<TblCategorium>(request);
+            var categoria = _mapper.Map<Categoria>(request);
             _repository.InsertCategoriaById(categoria);
             return Ok(categoria);
         }
@@ -42,7 +42,7 @@ namespace ValtikCA.API.Controllers
         [HttpPut]
         public IActionResult Put(UpdateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<TblCategorium>(request);
+            var categoria = _mapper.Map<Categoria>(request);
             _repository.UpdateCategoriaById(categoria);
             return Ok();
         }
@@ -50,7 +50,7 @@ namespace ValtikCA.API.Controllers
         [HttpDelete]
         public IActionResult Delete(DeleteCategoriaRequest request)
         {
-            var categoria = _mapper.Map<TblCategorium>(request);
+            var categoria = _mapper.Map<Categoria>(request);
             _repository.DeleteCategoriaById(categoria);
             return Ok();
         }

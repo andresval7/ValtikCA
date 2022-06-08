@@ -9,10 +9,10 @@ namespace ValtikCA.Domain.Interfaces
 {
     public interface IClienteRepository
     {
-        public IEnumerable<TblCliente> GetCliente();
-        public TblCliente GetClienteById(decimal Id);
-        public void InsertClienteById(TblCliente cliente);
-        public void UpdateClienteById(TblCliente cliente);
-        public void DeleteClienteById(TblCliente cliente);
+        public IEnumerable<Cliente> GetCliente();
+        public Cliente GetClienteById(decimal Id);
+        public void InsertClienteById(Cliente cliente);
+        public void UpdateClienteById(Cliente cliente);
+        public void DeleteClienteById(Cliente cliente);
     }
 }

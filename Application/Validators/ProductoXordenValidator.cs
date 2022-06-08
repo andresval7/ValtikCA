@@ -24,4 +24,20 @@ namespace ValtikCA.Application.Validators
         }
 
     }
+    public class UpdateProductoXordenValidator : AbstractValidator<UpdateProductoXordenRequest>
+    {
+        public UpdateProductoXordenValidator()
+        {
+            RuleFor(x => x.IdProdOrden)
+                .NotEmpty()
+                    .WithMessage("El ID de la orden requerida");
+            RuleFor(x => x.IdOrden).NotEqual(0)
+                    .WithMessage("El ID de la orden es requerida");
+            RuleFor(x => x.IdProducto)
+                .NotEmpty()
+                    .WithMessage("El ID del producto es requerido");
+
+        }
+
+    }
 }

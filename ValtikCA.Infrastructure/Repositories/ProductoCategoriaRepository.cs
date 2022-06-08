@@ -8,20 +8,20 @@ using ValtikCA.Infrastructure.Persistence;
 
 namespace ValtikCA.Infrastructure.Repositories
 {
-    public class ProductoCategoriumRepository : IProductoCategoriumRepository
+    public class ProductoCategoriaRepository : IProductoCategoriaRepository
     {
         private DBTiendaValtikContext _context;
-        public ProductoCategoriumRepository(DBTiendaValtikContext context)
+        public ProductoCategoriaRepository(DBTiendaValtikContext context)
         {
             _context = context;
         }
 
-        public IEnumerable<ProductoCategorium> GetProductoCategorium()
+        public IEnumerable<ProductoCategoria> GetProductoCategoria()
         {
             return _context.ProductoCategoria;
         }
 
-        public ProductoCategorium GetProductoCategoriumById(int Id)
+        public ProductoCategoria GetProductoCategoriaById(int Id)
         {
             var idProdCategoriaExistente = _context.ProductoCategoria.
                 FirstOrDefault(x => x.IdProdCategoria == Id);
@@ -30,13 +30,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void InsertProductoCategorium(ProductoCategorium idProdcategoria)
+        public void InsertProductoCategoria(ProductoCategoria idProdcategoria)
         {
             _context.ProductoCategoria.Add(idProdcategoria);
             _context.SaveChanges();
         }
 
-        public void UpdateProductoCategoriumById(ProductoCategorium idProdcategoria)
+        public void UpdateProductoCategoriaById(ProductoCategoria idProdcategoria)
         {
             var idProdCategoriaExistente = _context.ProductoCategorium
                 .FirstOrDefault(x => x.IdProdCategoria == (idProdcategoria.IdProdCategoria));
@@ -50,7 +50,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteProductoCategoriumById(ProductoCategorium idProdcategoria)
+        public void DeleteProductoCategoriaById(ProductoCategoria idProdcategoria)
         {
             var idProdCategoriaExistente = _context.ProductoCategorium
                 .FirstOrDefault(x => x.IdProdCategoria == (idProdcategoria.IdProdCategoria));
