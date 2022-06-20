@@ -8,45 +8,45 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductoController : ControllerBase
+    public class ProductoCategoriaController : ControllerBase
     {
-        private readonly IProductoService _service;
+      private readonly IProductoCategoriaService _service;
 
-        public ProductoController(IProductoService service)
+        public ProductoCategoriaController(IProductoCategoriaService service)
         {
             _service = service;
         }
 
         /// <summary>
-        /// Retorna un listado con todas los productos registrados
+        /// Retorna un listado con todas los productos por categorías registrados
         /// </summary>
         /// <returns></returns> 
 
         [HttpGet]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<ProductoResponse>))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<ProductoCategoriaResponse>))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ProblemDetails))]
         public IActionResult Get()
         {
-            return Ok(_service.GetProducto());
+            return Ok(_service.GetProductoCategoria());
         }
 
         /// <summary>
-        /// Permite consultar la información de un producto por su id
+        /// Permite consultar la información de un producto por categoría por su id
         /// </summary>
-        /// <param name="request">Identificador del producto a buscar</param>
+        /// <param name="request">Identificador del producto categoría a buscar</param>
         /// <returns></returns>
         [HttpGet("{id}")]
-        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoResponse))]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoCategoriaResponse))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Get([FromRoute] CreateProductoRequest request)
+        public IActionResult Get([FromRoute] CreateProductoCategoriaRequest request)
         {
-            return Ok(_service.GetProductoById(request.IdProducto));
+            return Ok(_service.GetProductoCategoriaById(request.IdProdCategoria));
         }
 
         /// <summary>
-        /// Permite insertar un producto
+        /// Permite insertar un producto por categoría
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -54,13 +54,13 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Post(CreateProductoRequest request)
+        public IActionResult Post(CreateProductoCategoriaRequest request)
         {
-            _service.InsertProductoById(request);
+            _service.InsertProductoCategoria(request);
             return Ok();
         }
         /// <summary>
-        /// Permite actualizar un producto
+        /// Permite actualizar un producto por categoría
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -68,13 +68,13 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Put(UpdateProductoRequest request)
+        public IActionResult Put(UpdateProductoCategoria request)
         {
-            _service.UpdateProductoById(request);
+            _service.UpdateProductoCategoria(request);
             return Ok();
         }
         /// <summary>
-        /// Permite eliminar un producto
+        /// Permite eliminar un producto por categoría
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
@@ -82,9 +82,9 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Delete([FromRoute] DeleteProductoRequest request)
+        public IActionResult Delete([FromRoute] DeleteProductoCategoria request)
         {
-            _service.DeleteProductoById(request.IdProducto);
+            _service.DeleteProductoCategoria(request.IdProducto);
             return Ok();
         }
     }

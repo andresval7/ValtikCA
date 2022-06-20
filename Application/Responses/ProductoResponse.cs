@@ -1,16 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ValtikCA.Domain.Entities
+namespace ValtikCA.Application.Responses
 {
-    public partial class Producto
+    public class ProductoResponse
     {
-        public Producto()
-        {
-            ProductoCategoria = new HashSet<ProductoCategoria>();
-            ProductosXordens = new HashSet<ProductosXorden>();
-        }
-
         public string IdProducto { get; set; } = null!;
         public string Sku { get; set; } = null!;
         public string Nombre { get; set; } = null!;
@@ -20,8 +17,5 @@ namespace ValtikCA.Domain.Entities
         public string? ImgMiniatura { get; set; }
         public string? Imagen { get; set; }
         public int Stock { get; set; }
-
-        public virtual ICollection<ProductoCategoria> ProductoCategoria { get; set; }
-        public virtual ICollection<ProductosXorden> ProductosXordens { get; set; }
     }
 }

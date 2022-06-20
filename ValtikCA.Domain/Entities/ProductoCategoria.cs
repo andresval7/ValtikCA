@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using ValtikCA.Domain.Entities;
 
-namespace ValtikCA.Infrastructure.Persistence
+namespace ValtikCA.Domain.Entities
 {
     public partial class ProductoCategoria
     {

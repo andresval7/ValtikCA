@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ValtikCA.Domain.Entities;
 using ValtikCA.Domain.Interfaces;
 using ValtikCA.Infrastructure.Persistence;
 
@@ -18,12 +14,12 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<Categoria> GetCategoria()
         {
-            return _context.TblCategoria;
+            return (IEnumerable<Categoria>)_context.Categoria;
         }
 
         public Categoria GetCategoriaById(int Id)
         {
-            var categoriaExistente = _context.TblCategoria.
+            var categoriaExistente = _context.Categoria.
                 FirstOrDefault(x => x.IdCategoria == (Id));
 
             return categoriaExistente;
@@ -32,13 +28,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void InsertCategoriaById(Categoria categoria)
         {
-            _context.TblCategoria.Add(categoria);
+            _context.Categoria.Add(categoria);
             _context.SaveChanges();
         }
 
         public void UpdateCategoriaById(Categoria categoria)
         {
-            var categoriaExistente = _context.TblCategoria
+            var categoriaExistente = _context.Categoria
                 .FirstOrDefault(x => x.IdCategoria == categoria.IdCategoria);
             if (categoriaExistente != null)
             {
@@ -52,7 +48,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void DeleteCategoriaById(Categoria categoria)
         {
-            var categoriaExistente = _context.TblCategoria
+            var categoriaExistente = _context.Categoria
                 .FirstOrDefault(x => x.IdCategoria == categoria.IdCategoria);
             if (categoriaExistente != null)
             {

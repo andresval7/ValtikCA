@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using ValtikCA.Domain.Entities;
 
 namespace ValtikCA.Infrastructure.Persistence
 {
@@ -18,7 +19,7 @@ namespace ValtikCA.Infrastructure.Persistence
 
         public virtual DbSet<ProductoCategoria> ProductoCategoria { get; set; } = null!;
         public virtual DbSet<ProductosXorden> ProductosXordens { get; set; } = null!;
-        public virtual DbSet<Categoria> TblCategoria { get; set; } = null!;
+        public virtual DbSet<Categoria> Categoria { get; set; } = null!;
         public virtual DbSet<Cliente> TblClientes { get; set; } = null!;
         public virtual DbSet<Orden> TblOrdenes { get; set; } = null!;
         public virtual DbSet<Producto> TblProductos { get; set; } = null!;

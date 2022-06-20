@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ValtikCA.Infrastructure.Persistence;
+﻿using ValtikCA.Domain.Entities;
 
 namespace ValtikCA.Domain.Interfaces
 {
@@ -14,6 +9,6 @@ namespace ValtikCA.Domain.Interfaces
         public void InsertProductoXorden(ProductosXorden prodXOrden);
         public void UpdateProductoXordenById(ProductosXorden prodXOrden);
         public void DeleteProductoXordenById(ProductosXorden prodXOrden);
-
+        
     }
 }

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ValtikCA.Infrastructure.Persistence
+namespace ValtikCA.Domain.Entities
 {
     public partial class Orden
     {

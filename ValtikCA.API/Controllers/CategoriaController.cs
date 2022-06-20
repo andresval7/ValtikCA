@@ -1,9 +1,10 @@
 ﻿using AutoMapper;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Net;
+using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
+using ValtikCA.Application.Responses;
 using ValtikCA.Domain.Interfaces;
-using ValtikCA.Infrastructure.Persistence;
 
 namespace ValtikCA.API.Controllers
 {
@@ -11,48 +12,83 @@ namespace ValtikCA.API.Controllers
     [ApiController]
     public class CategoriaController : ControllerBase
     {
-        private readonly ICategoriaRepository _repository;
-        private readonly IMapper _mapper;
+        private readonly ICategoriaService _service;
 
-        public CategoriaController(ICategoriaRepository repository, IMapper mapper)
+        public CategoriaController(ICategoriaService service)
         {
-            _repository = repository;
-            _mapper = mapper;
+            _service = service;
         }
+
+        /// <summary>
+        /// Retorna un listado con todas las categorías registradas
+        /// </summary>
+        /// <returns></returns> 
 
         [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(IEnumerable<CategoriaResponse>))]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest, Type = typeof(ProblemDetails))]
         public IActionResult Get()
         {
-            return Ok(_repository.GetCategoria());
-        }
-        [HttpGet("id")]
-        public IActionResult Get(int id)
-        {
-            return Ok(_repository.GetCategoriaById(id));
+            return Ok(_service.GetAllCategorias());
         }
 
+        /// <summary>
+        /// Permite consultar la información de una categoría por su id
+        /// </summary>
+        /// <param name="request">Identificador de la categoría a buscar</param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(CategoriaResponse))]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Get([FromRoute] CreateCategoriaRequest request)
+        {
+            return Ok(_service.GetCategoriaById(request.IdCategoria));
+        }
+
+        /// <summary>
+        /// Permite insertar una categoría
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public IActionResult Post(CreateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<Categoria>(request);
-            _repository.InsertCategoriaById(categoria);
-            return Ok(categoria);
+            _service.InsertCategoriaById(request);
+            return Ok();
         }
-
+        /// <summary>
+        /// Permite actualizar una categoría
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
         [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public IActionResult Put(UpdateCategoriaRequest request)
         {
-            var categoria = _mapper.Map<Categoria>(request);
-            _repository.UpdateCategoriaById(categoria);
+            _service.UpdateCategoriaById(request);
             return Ok();
         }
-
-        [HttpDelete]
-        public IActionResult Delete(DeleteCategoriaRequest request)
+        /// <summary>
+        /// Permite eliminar una categoría
+        /// </summary>
+        /// <param name="request"></param>
+        /// <returns></returns>
+        [HttpDelete("{id}")]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public IActionResult Delete([FromRoute] DeleteCategoriaRequest request)
         {
-            var categoria = _mapper.Map<Categoria>(request);
-            _repository.DeleteCategoriaById(categoria);
+            _service.DeleteCategoriaById(request.IdCategoria);
             return Ok();
         }
-    }
+    }   
+
 }

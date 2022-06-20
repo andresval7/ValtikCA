@@ -1,11 +1,7 @@
 ﻿using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ValtikCA.Application.Requests;
-using ValtikCA.Infrastructure.Persistence;
+using ValtikCA.Application.Responses;
+using ValtikCA.Domain.Entities;
 
 namespace ValtikCA.Application.Mappings
 {
@@ -21,6 +17,8 @@ namespace ValtikCA.Application.Mappings
             CreateMap<Orden, ReadOrdenRequest>();
             CreateMap<DeleteOrdenRequest, Orden>();
             CreateMap<Orden, DeleteOrdenRequest>();
+
+            CreateMap<Orden, OrdenResponse>();
         }
     }
 }

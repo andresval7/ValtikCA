@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace ValtikCA.Domain.Entities
+namespace ValtikCA.Application.Responses
 {
-    public partial class Cliente
+    public class ClienteResponse
     {
-        public Cliente()
-        {
-            TblOrdenes = new HashSet<Orden>();
-        }
-
         public decimal IdCliente { get; set; }
         public string Nombre1 { get; set; } = null!;
         public string Nombre2 { get; set; } = null!;
@@ -22,7 +20,5 @@ namespace ValtikCA.Domain.Entities
         public string? Ciudad { get; set; }
         public string Provincia { get; set; } = null!;
         public decimal? CodigoPostal { get; set; }
-
-        public virtual ICollection<Orden> TblOrdenes { get; set; }
     }
 }
