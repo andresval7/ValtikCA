@@ -3,15 +3,16 @@ using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
 using ValtikCA.Application.Responses;
 using ValtikCA.Domain.Entities;
+using ValtikCA.Domain.Interfaces;
 
 namespace ValtikCA.Application.Services
 {
     public class ClienteService : IClienteService
     {
-        private readonly IClienteService _repository;
+        private readonly IClienteRepository _repository;
         private readonly IMapper _mapper;
 
-        public ClienteService(IClienteService repository, IMapper mapper)
+        public ClienteService(IClienteRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -36,19 +37,18 @@ namespace ValtikCA.Application.Services
             return clienteResponse;
         }
 
-        public void InsertClienteById(CreateClienteRequest cliente)
+        public void InsertClienteById(CreateClienteRequest request)
         {
-            _repository.InsertClienteById(cliente);
+            var categoria = _mapper.Map<Cliente>(request);
+            _repository.InsertClienteById(categoria);
+
         }
 
-        public void InsertClienteById(Cliente cliente)
-        {
-            _repository.InsertClienteById(cliente);
-        }
 
-        public void UpdateClienteById(UpdateClienteRequest cliente)
+        public void UpdateClienteById(UpdateClienteRequest request)
         {
-            _repository.UpdateClienteById(cliente);
+            var categoria = _mapper.Map<Cliente>(request);
+            _repository.UpdateClienteById(categoria);
         }
     }
 }

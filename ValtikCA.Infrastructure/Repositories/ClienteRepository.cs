@@ -59,10 +59,10 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteClienteById(Cliente cliente)
+        public void DeleteClienteById(decimal cliente)
         {
             var clienteExistente = _context.TblClientes
-                .FirstOrDefault(x => x.IdCliente == cliente.IdCliente);
+                .FirstOrDefault(x => x.IdCliente == cliente);
             if (clienteExistente != null)
             {
                 _context.Remove(clienteExistente);

@@ -5,7 +5,7 @@ namespace ValtikCA.Application.Interfaces
 {
     public interface IOrdenService
     {
-        OrdenResponse GetOrdenById(int Id);
+        OrdenResponse GetOrdenById(decimal Id);
 
         IEnumerable<OrdenResponse> GetOrden();
 
@@ -13,8 +13,7 @@ namespace ValtikCA.Application.Interfaces
 
         void UpdateOrdenById(UpdateOrdenRequest orden);
 
-        void DeleteOrdenById(int Id);
         void DeleteOrdenById(decimal idOrden);
-        object? GetOrdenById(decimal idOrden);
+
     }
 }

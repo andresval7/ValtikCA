@@ -17,10 +17,10 @@ namespace ValtikCA.Infrastructure.Repositories
             return _context.TblOrdenes;
         }
 
-        public Orden GetOrdenById(int Id)
+        public Orden GetOrdenById(decimal Id)
         {
             var ordenExistente = _context.TblOrdenes.
-                FirstOrDefault(x => x.IdOrden == (Id));
+                FirstOrDefault(x => x.IdOrden == Id);
 
             return ordenExistente;
 
@@ -49,10 +49,10 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteOrdenById(Orden orden)
+        public void DeleteOrdenById(decimal orden)
         {
             var ordenExistente = _context.TblOrdenes
-                .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));
+                .FirstOrDefault(x => x.IdOrden == orden);
             if (ordenExistente != null)
             {
                 _context.Remove(ordenExistente);

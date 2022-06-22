@@ -8,7 +8,7 @@ namespace ValtikCA.Domain.Interfaces
         public Producto GetProductoById(string Id);
         public void InsertProductoById(Producto producto);
         public void UpdateProductoById(Producto producto);
-        public void DeleteProductoById(Producto producto);
+        public void DeleteProductoById(string producto);
 
     }
 }

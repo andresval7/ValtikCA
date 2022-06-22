@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
@@ -12,6 +13,7 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductosXOrdenController : ControllerBase
     {
         private readonly IProductoXordenService _service;
@@ -88,7 +90,7 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public IActionResult Delete([FromRoute] DeleteProductoXordenRequest request)
         {
-            _service.DeleteProductoXordenById(request.IdProdOrden);
+            _service.DeleteProductoXordenById(request);
             return Ok();
         }
     }

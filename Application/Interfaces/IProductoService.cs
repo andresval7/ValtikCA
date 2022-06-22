@@ -14,7 +14,6 @@ namespace ValtikCA.Application.Interfaces
 
         void UpdateProductoById(UpdateProductoRequest request);
 
-        void DeleteProductoById(Producto producto);
         void DeleteProductoById(string idProducto);
     }
 }

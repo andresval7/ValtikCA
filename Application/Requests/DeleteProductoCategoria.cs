@@ -8,6 +8,6 @@ namespace ValtikCA.Application.Requests
 {
     public class DeleteProductoCategoria
     {
-        public string IdProducto { get; set; } = null!;
+        public int IdProdCategoria { get; set; }
     }
 }

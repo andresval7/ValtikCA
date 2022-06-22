@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using ValtikCA.Application.Interfaces;
@@ -10,6 +11,7 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class CategoriaController : ControllerBase
     {
         private readonly ICategoriaService _service;
@@ -86,7 +88,7 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public IActionResult Delete([FromRoute] DeleteCategoriaRequest request)
         {
-            _service.DeleteCategoriaById(request.IdCategoria);
+            _service.DeleteCategoria(request.IdCategoria);
             return Ok();
         }
     }   

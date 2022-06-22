@@ -1,6 +1,9 @@
 using FluentValidation.AspNetCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using System.Reflection;
+using System.Text;
 using ValtikCA.Application;
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Services;
@@ -28,7 +31,7 @@ builder.Services.AddTransient<IClienteService, ClienteService>();
 builder.Services.AddTransient<IOrdenService, OrdenService>();
 builder.Services.AddTransient<IProductoCategoriaService, ProductoCategoriaService>();
 builder.Services.AddTransient<IProductoService, ProductoService>();
-builder.Services.AddTransient<IProductoXordenService, IProductoXordenService>();
+builder.Services.AddTransient<IProductoXordenService, ProductoXordenService>();
 
 
 builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
@@ -45,6 +48,28 @@ builder.Services.AddApplicationServices();
 //Registrar las dependencias
 builder.Services.AddTransient<ISalaRepository, SalaRepository>();
 */
+
+//Autenticacion con JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(options =>
+{
+    //Se definen los parametros de validación del token
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = "https://localhost:7194",
+        ValidAudience = "https://localhost:7194",
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Valtik2022&Ciaasdasfasdfadsffdsgas"))
+    };
+});
+
+
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -65,10 +90,9 @@ builder.Services.AddSwaggerGen(options =>
     options.IncludeXmlComments(xmlPath);
 });
 
-
-var app = builder.Build();
-
-
+try
+{
+    var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -86,10 +110,18 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
+//Se registra la autenticación
+app.UseAuthentication();
 app.UseAuthorization();
 
 app.MapControllers();
 
 app.Run();
 
+}
+catch (Exception ex)
+{
+    Console.WriteLine("el error es:");
+    Console.WriteLine(ex.ToString());
+}
 

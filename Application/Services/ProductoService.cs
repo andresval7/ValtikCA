@@ -3,29 +3,26 @@ using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
 using ValtikCA.Application.Responses;
 using ValtikCA.Domain.Entities;
+using ValtikCA.Domain.Interfaces;
 
 namespace ValtikCA.Application.Services
 {
     public class ProductoService : IProductoService
     {
-        private readonly IProductoService _repository;
+        private readonly IProductoRepository _repository;
         private readonly IMapper _mapper;
 
-        public ProductoService(IProductoService repository, IMapper mapper)
+        public ProductoService(IProductoRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public void DeleteProductoById(Producto producto)
+        public void DeleteProductoById(string producto)
         {
             _repository.DeleteProductoById(producto);
         }
 
-        public void DeleteProductoById(string idProducto)
-        {
-            _repository.DeleteProductoById(idProducto);
-        }
 
         public IEnumerable<ProductoResponse> GetProducto()
         {
@@ -38,17 +35,19 @@ namespace ValtikCA.Application.Services
         {
             var products = _repository.GetProductoById(Id);
             var productosResponse = _mapper.Map<ProductoResponse>(products);
-            return _repository.GetProductoById(Id);
+            return productosResponse;
         }
 
-        public void InsertProductoById(CreateProductoRequest producto)
+        public void InsertProductoById(CreateProductoRequest request)
         {
-            _repository.InsertProductoById(producto);
+            var categoria = _mapper.Map<Producto>(request);
+            _repository.InsertProductoById(categoria);
         }
 
-        public void UpdateProductoById(UpdateProductoRequest producto)
+        public void UpdateProductoById(UpdateProductoRequest request)
         {
-            _repository.UpdateProductoById(producto);
+            var categoria = _mapper.Map<Producto>(request);
+            _repository.UpdateProductoById(categoria);
         }
     }
 }

@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class DeleteCategoriaRequest
+    public class UserLoginRequest
     {
-        public int IdCategoria { get; set; }
-        
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
     }
 }

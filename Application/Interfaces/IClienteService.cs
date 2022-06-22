@@ -15,6 +15,5 @@ namespace ValtikCA.Application.Interfaces
         void UpdateClienteById(UpdateClienteRequest cliente);
 
         void DeleteClienteById(decimal Id);
-        void InsertClienteById(Cliente cliente);
     }
 }

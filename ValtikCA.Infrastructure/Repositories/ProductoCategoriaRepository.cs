@@ -46,10 +46,10 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteProductoCategoriaById(ProductoCategoria idProdcategoria)
+        public void DeleteProductoCategoriaById(int idProdcategoria)
         {
             var idProdCategoriaExistente = _context.ProductoCategorium
-                .FirstOrDefault(x => x.IdProdCategoria == (idProdcategoria.IdProdCategoria));
+                .FirstOrDefault(x => x.IdProdCategoria == idProdcategoria);
             if (idProdCategoriaExistente != null)
             {
                 _context.Remove(idProdCategoriaExistente);

@@ -17,7 +17,7 @@ namespace ValtikCA.Infrastructure.Repositories
             return _context.ProductosXordens;
         }
 
-        public ProductosXorden GetProductoXordenById(int Id)
+        public ProductosXorden GetProductoXordenById(decimal Id)
         {
             var prodOrdenExistente = _context.ProductosXordens.
                 FirstOrDefault(x => x.IdProdOrden == (Id));

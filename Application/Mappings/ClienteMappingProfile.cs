@@ -19,6 +19,7 @@ namespace ValtikCA.Application.Mappings
             CreateMap<Cliente, DeleteClienteRequest>();
 
             CreateMap<Cliente, ClienteResponse>();
+            CreateMap<ClienteResponse, Cliente>();
 
         }
     }

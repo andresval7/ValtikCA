@@ -96,6 +96,7 @@ namespace ValtikCA.Infrastructure.Persistence
 
             modelBuilder.Entity<Categoria>(entity =>
             {
+                entity.ToTable("TblCategoria");
                 entity.HasKey(e => e.IdCategoria)
                     .HasName("PK__TblCateg__A3C02A10B4DB5E92");
 

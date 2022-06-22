@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
@@ -8,6 +9,7 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class ProductoCategoriaController : ControllerBase
     {
       private readonly IProductoCategoriaService _service;
@@ -84,7 +86,7 @@ namespace ValtikCA.API.Controllers
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         public IActionResult Delete([FromRoute] DeleteProductoCategoria request)
         {
-            _service.DeleteProductoCategoria(request.IdProducto);
+            _service.DeleteProductoCategoria(request.IdProdCategoria);
             return Ok();
         }
     }

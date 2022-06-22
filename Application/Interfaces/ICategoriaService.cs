@@ -12,7 +12,7 @@ namespace ValtikCA.Application.Interfaces
 
         void UpdateCategoriaById(UpdateCategoriaRequest categoria);
 
-        void DeleteCategoriaById(int id);
+        void DeleteCategoria(int id);
     }
 
 }

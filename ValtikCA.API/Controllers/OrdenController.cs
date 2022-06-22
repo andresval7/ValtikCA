@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using System.Net;
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
@@ -8,6 +9,7 @@ namespace ValtikCA.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize]
     public class OrdenController : ControllerBase
     {
         private readonly IOrdenService _service;

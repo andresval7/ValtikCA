@@ -16,10 +16,9 @@ namespace ValtikCA.Application.Interfaces
 
         void InsertProductoCategoria(CreateProductoCategoriaRequest idProdcategoria);
 
-        void UpdateProductoCategoria(UpdateCategoriaRequest idProdcategoria);
 
         void DeleteProductoCategoria(int Id);
-        void DeleteProductoCategoria(string idProducto);
+
         void UpdateProductoCategoria(UpdateProductoCategoria request);
     }
 }

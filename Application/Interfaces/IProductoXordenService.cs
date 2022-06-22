@@ -5,7 +5,7 @@ namespace ValtikCA.Application.Interfaces
 {
     public interface IProductoXordenService
     {
-        ProductoXordenResponse GetProductoXordenById(int Id);
+        ProductoXordenResponse GetProductoXordenById(decimal Id);
 
         IEnumerable<ProductoXordenResponse> GetProductoXorden();
 
@@ -13,7 +13,7 @@ namespace ValtikCA.Application.Interfaces
 
         void UpdateProductoXordenById(UpdateProductoXordenRequest prodXOrden);
 
-        void DeleteProductoXordenById(decimal idProdOrden);
-        object? GetProductoXordenById(decimal idProdOrden);
+        void DeleteProductoXordenById(DeleteProductoXordenRequest prodXOrden);
+        
     }
 }

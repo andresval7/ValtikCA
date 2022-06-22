@@ -2,15 +2,17 @@
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
 using ValtikCA.Application.Responses;
+using ValtikCA.Domain.Entities;
+using ValtikCA.Domain.Interfaces;
 
 namespace ValtikCA.Application.Services
 {
     public class ProductoCategoriaService : IProductoCategoriaService
     {
-        private readonly IProductoCategoriaService _repository;
+        private readonly IProductoCategoriaRepository _repository;
         private readonly IMapper _mapper;
 
-        public ProductoCategoriaService(IProductoCategoriaService repository, IMapper mapper)
+        public ProductoCategoriaService(IProductoCategoriaRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -18,13 +20,9 @@ namespace ValtikCA.Application.Services
 
         public void DeleteProductoCategoria(int Id)
         {
-            _repository.DeleteProductoCategoria(Id);
+            _repository.DeleteProductoCategoriaById(Id);
         }
 
-        public void DeleteProductoCategoria(string idProducto)
-        {
-            _repository.DeleteProductoCategoria(idProducto);
-        }
 
         public IEnumerable<ProductoCategoriaResponse> GetProductoCategoria()
         {
@@ -40,19 +38,17 @@ namespace ValtikCA.Application.Services
             return productoCategoriaResponse;
         }
 
-        public void InsertProductoCategoria(CreateProductoCategoriaRequest idProdcategoria)
+        public void InsertProductoCategoria(CreateProductoCategoriaRequest request)
         {
-            _repository.InsertProductoCategoria(idProdcategoria);
+            var categoria = _mapper.Map<ProductoCategoria>(request);
+            _repository.InsertProductoCategoria(categoria);
         }
 
-        public void UpdateProductoCategoria(UpdateCategoriaRequest idProdcategoria)
-        {
-            _repository.UpdateProductoCategoria(idProdcategoria);
-        }
 
         public void UpdateProductoCategoria(UpdateProductoCategoria request)
         {
-            _repository.UpdateProductoCategoria(request);
+            var categoria = _mapper.Map<ProductoCategoria>(request);
+            _repository.UpdateProductoCategoriaById(categoria);
         }
     }
 }

@@ -19,9 +19,10 @@ namespace ValtikCA.Application.Services
         }
 
 
-        public void DeleteProductoXordenById(decimal idProdOrden)
+        public void DeleteProductoXordenById(DeleteProductoXordenRequest request)
         {
-            throw new NotImplementedException();
+            var prodXorden = _mapper.Map<ProductosXorden>(request);
+            _repository.DeleteProductoXordenById(prodXorden);
         }
 
         public IEnumerable<ProductoXordenResponse> GetProductoXorden()
@@ -31,17 +32,13 @@ namespace ValtikCA.Application.Services
             return productosXordensResponse;
         }
 
-        public ProductoXordenResponse GetProductoXordenById(int Id)
+        public ProductoXordenResponse GetProductoXordenById(decimal Id)
         {
             var prodXorden = _repository.GetProductoXordenById(Id);
             var prodXordenResponse = _mapper.Map<ProductoXordenResponse>(prodXorden);
             return prodXordenResponse;
         }
 
-        public object? GetProductoXordenById(decimal idProdOrden)
-        {
-            throw new NotImplementedException();
-        }
 
         public void InsertProductoXorden(CreateProductoXordenRequest request)
         {

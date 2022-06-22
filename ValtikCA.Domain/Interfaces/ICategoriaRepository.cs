@@ -8,6 +8,6 @@ namespace ValtikCA.Domain.Interfaces
         public Categoria GetCategoriaById(int Id);
         public void InsertCategoriaById(Categoria categoria);
         public void UpdateCategoriaById(Categoria categoria);
-        public void DeleteCategoriaById(Categoria categoria);
+        public void DeleteCategoriaById(int id);
     }
 }

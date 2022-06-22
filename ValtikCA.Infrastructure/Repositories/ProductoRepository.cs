@@ -51,10 +51,10 @@ namespace ValtikCA.Infrastructure.Repositories
 
         }
 
-        public void DeleteProductoById(Producto producto)
+        public void DeleteProductoById(string producto)
         {
             var productoExistente = _context.TblProductos
-                .FirstOrDefault(x => x.IdProducto.Equals(producto.IdProducto));
+                .FirstOrDefault(x => x.IdProducto.Equals(producto));
             if(productoExistente != null)
             {
                 _context.Remove(productoExistente);

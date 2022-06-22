@@ -2,18 +2,17 @@
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
 using ValtikCA.Application.Responses;
+using ValtikCA.Domain.Entities;
+using ValtikCA.Domain.Interfaces;
 
 namespace ValtikCA.Application.Services
 {
     public class OrdenService : IOrdenService
     {
-        private readonly IOrdenService _repository;
+        private readonly IOrdenRepository _repository;
         private readonly IMapper _mapper;
 
-        public void DeleteOrdenById(int Id)
-        {
-            _repository.DeleteOrdenById(Id);
-        }
+
 
         public void DeleteOrdenById(decimal idOrden)
         {
@@ -27,25 +26,24 @@ namespace ValtikCA.Application.Services
             return ordenesResponse;
         }
 
-        public OrdenResponse GetOrdenById(int Id)
+        public OrdenResponse GetOrdenById(decimal Id)
         {
             var orden = _repository.GetOrdenById(Id);
             var ordenResponse = _mapper.Map<OrdenResponse>(orden);
-            return _repository.GetOrdenById(Id);
+            return ordenResponse;
         }
 
-        public object? GetOrdenById(decimal idOrden)
-        {
-            return _repository.GetOrdenById(idOrden);
-        }
 
-        public void InsertOrdenById(CreateOrdenRequest orden)
+        public void InsertOrdenById(CreateOrdenRequest request)
         {
+            var orden = _mapper.Map<Orden>(request);
+            
             _repository.InsertOrdenById(orden);
         }
 
-        public void UpdateOrdenById(UpdateOrdenRequest orden)
+        public void UpdateOrdenById(UpdateOrdenRequest request)
         {
+            var orden = _mapper.Map<Orden>(request);
             _repository.UpdateOrdenById(orden);
         }
     }

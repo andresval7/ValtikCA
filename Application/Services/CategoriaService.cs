@@ -2,28 +2,30 @@
 using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
 using ValtikCA.Application.Responses;
+using ValtikCA.Domain.Entities;
+using ValtikCA.Domain.Interfaces;
 
 namespace ValtikCA.Application.Services
 {
     public class CategoriaService : ICategoriaService
     {
-        private readonly ICategoriaService _repository;
+        private readonly ICategoriaRepository _repository;
         private readonly IMapper _mapper;
 
-        public CategoriaService(ICategoriaService repository, IMapper mapper)
+        public CategoriaService(ICategoriaRepository repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
         }
 
-        public void DeleteCategoriaById(int id)
+        public void DeleteCategoria(int idDelete )
         {
-            _repository.DeleteCategoriaById(id);
+            _repository.DeleteCategoriaById(idDelete);
         }
 
         public IEnumerable<CategoriaResponse> GetAllCategorias()
         {
-            var categorias = _repository.GetAllCategorias();
+            var categorias = _repository.GetCategoria();
             var categoriasResponse = _mapper.Map<IEnumerable<CategoriaResponse>>(categorias);
             return categoriasResponse;
         }
@@ -35,14 +37,16 @@ namespace ValtikCA.Application.Services
             return categoriaResponse;
         }
 
-        public void InsertCategoriaById(CreateCategoriaRequest categoria)
+        public void InsertCategoriaById(CreateCategoriaRequest request)
         {
+            var categoria = _mapper.Map<Categoria>(request);
             _repository.InsertCategoriaById(categoria);
         }
 
-        public void UpdateCategoriaById(UpdateCategoriaRequest categoria)
+        public void UpdateCategoriaById(UpdateCategoriaRequest request)
         {
-             _repository.UpdateCategoriaById(categoria);
+            var categoria = _mapper.Map<Categoria>(request);
+            _repository.UpdateCategoriaById(categoria);
         }
     }   
 }
