@@ -182,6 +182,9 @@ namespace ValtikCA.Infrastructure.Migrations
 
                     b.Property<decimal?>("Telefono")
                         .HasColumnType("numeric(18,0)");
+                    
+                    b.Property<int>("esEmpleado")
+                        .HasColumnType("int");
 
                     b.HasKey("IdCliente")
                         .HasName("PK__TblClien__D594664268D372FA");

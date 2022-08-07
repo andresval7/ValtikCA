@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ValtikCA.Application.Requests
+namespace ValtikCA.Domain.Entities
 {
-    public class UserLoginRequest
+    public partial class Autorizaciones
     {
+        
         public string UserName { get; set; } = null!;
-
         public string PasswordAuth { get; set; } = null!;
     }
 }

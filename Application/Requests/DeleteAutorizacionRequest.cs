@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class ReadProductoRequest
+    public class DeleteAutorizacionRequest
     {
-        public string IdProducto { get; set; } = null!;
-        
+        public string UserName { get; set; } = null!;
     }
 }

@@ -23,7 +23,6 @@ namespace ValtikCA.Application.Services
             _repository.DeleteProductoById(producto);
         }
 
-
         public IEnumerable<ProductoResponse> GetProducto()
         {
             var productos = _repository.GetProducto();

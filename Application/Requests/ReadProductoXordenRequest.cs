@@ -9,10 +9,6 @@ namespace ValtikCA.Application.Requests
     public class ReadProductoXordenRequest
     {
         public decimal IdProdOrden { get; set; }
-        public decimal IdOrden { get; set; }
-        public string IdProducto { get; set; } = null!;
-        public string Sku { get; set; } = null!;
-        public int Cantidad { get; set; }
-        public decimal Total { get; set; }
+        
     }
 }

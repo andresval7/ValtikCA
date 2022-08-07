@@ -14,13 +14,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<Categoria> GetCategoria()
         {
-            return (IEnumerable<Categoria>)_context.Categoria;
+            return (IEnumerable<Categoria>)_context.Categorias;
         }
 
         public Categoria GetCategoriaById(int Id)
         {
-            var categoriaExistente = _context.Categoria.
-                FirstOrDefault(x => x.IdCategoria == (Id));
+            var categoriaExistente = _context.Categorias.
+                FirstOrDefault(x => x.IdCategoria == Id);
 
             return categoriaExistente;
 
@@ -28,13 +28,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void InsertCategoriaById(Categoria categoria)
         {
-            _context.Categoria.Add(categoria);
+            _context.Categorias.Add(categoria);
             _context.SaveChanges();
         }
 
         public void UpdateCategoriaById(Categoria categoria)
         {
-            var categoriaExistente = _context.Categoria
+            var categoriaExistente = _context.Categorias
                 .FirstOrDefault(x => x.IdCategoria == categoria.IdCategoria);
             if (categoriaExistente != null)
             {
@@ -48,7 +48,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void DeleteCategoriaById(int categoria)
         {
-            var categoriaExistente = _context.Categoria
+            var categoriaExistente = _context.Categorias
                 .FirstOrDefault(x => x.IdCategoria == categoria);
             if (categoriaExistente != null)
             {

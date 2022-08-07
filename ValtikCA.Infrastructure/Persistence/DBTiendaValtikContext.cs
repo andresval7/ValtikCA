@@ -19,10 +19,11 @@ namespace ValtikCA.Infrastructure.Persistence
 
         public virtual DbSet<ProductoCategoria> ProductoCategoria { get; set; } = null!;
         public virtual DbSet<ProductosXorden> ProductosXordens { get; set; } = null!;
-        public virtual DbSet<Categoria> Categoria { get; set; } = null!;
-        public virtual DbSet<Cliente> TblClientes { get; set; } = null!;
-        public virtual DbSet<Orden> TblOrdenes { get; set; } = null!;
-        public virtual DbSet<Producto> TblProductos { get; set; } = null!;
+        public virtual DbSet<Categoria> Categorias { get; set; } = null!;
+        public virtual DbSet<Cliente> Clientes { get; set; } = null!;
+        public virtual DbSet<Orden> Ordenes { get; set; } = null!;
+        public virtual DbSet<Producto> Productos { get; set; } = null!;
+        public virtual DbSet<Autorizaciones> Autorizaciones{ get; set; } = null!;
         public IEnumerable<ProductoCategoria> ProductoCategorium { get; internal set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -161,12 +162,16 @@ namespace ValtikCA.Infrastructure.Persistence
                     .IsUnicode(false);
 
                 entity.Property(e => e.Telefono).HasColumnType("numeric(18, 0)");
+
+                entity.Property(e => e.esEmpleado).HasColumnType("int");
             });
 
             modelBuilder.Entity<Orden>(entity =>
             {
                 entity.HasKey(e => e.IdOrden)
                     .HasName("PK__TblOrden__C38F300DFA35D4CF");
+
+                entity.ToTable("TblOrdenes");
 
                 entity.Property(e => e.IdOrden)
                     .HasColumnType("numeric(18, 0)")
@@ -225,6 +230,24 @@ namespace ValtikCA.Infrastructure.Persistence
                 entity.Property(e => e.Sku)
                     .HasMaxLength(60)
                     .IsUnicode(false);
+            });
+
+            //Añadiendo la tabla Autorizaciones
+            modelBuilder.Entity<Autorizaciones>(entity =>
+            {
+                entity.HasKey(e => e.UserName)
+                    .HasName("PK__Autoriza__09889210000CD310");
+
+                entity.ToTable("Autorizaciones");
+
+                entity.Property(e => e.UserName)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
+                entity.Property(e => e.PasswordAuth)
+                    .HasMaxLength(30)
+                    .IsUnicode(false);
+
             });
 
             OnModelCreatingPartial(modelBuilder);

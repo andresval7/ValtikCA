@@ -88,7 +88,7 @@ namespace ValtikCA.Infrastructure.Migrations
                     b.ToTable("ProductosXOrden", (string)null);
                 });
 
-            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.TblCategorium", b =>
+            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.Categorias", b =>
                 {
                     b.Property<int>("IdCategoria")
                         .ValueGeneratedOnAdd()
@@ -118,7 +118,7 @@ namespace ValtikCA.Infrastructure.Migrations
                     b.ToTable("TblCategoria");
                 });
 
-            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.TblCliente", b =>
+            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.Clientes", b =>
                 {
                     b.Property<decimal>("IdCliente")
                         .HasColumnType("numeric(18,0)");
@@ -187,7 +187,7 @@ namespace ValtikCA.Infrastructure.Migrations
                     b.ToTable("TblCliente", (string)null);
                 });
 
-            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.TblOrdene", b =>
+            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.Ordenes", b =>
                 {
                     b.Property<decimal>("IdOrden")
                         .ValueGeneratedOnAdd()
@@ -227,53 +227,71 @@ namespace ValtikCA.Infrastructure.Migrations
                 });
 
             modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.TblProducto", b =>
-                {
-                    b.Property<string>("IdProducto")
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+            {
+                b.Property<string>("IdProducto")
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(50)");
 
-                    b.Property<int>("Categoria")
-                        .HasColumnType("int");
+                b.Property<int>("Categoria")
+                    .HasColumnType("int");
 
-                    b.Property<string>("Descripcion")
-                        .HasMaxLength(300)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(300)");
+                b.Property<string>("Descripcion")
+                    .HasMaxLength(300)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(300)");
 
-                    b.Property<string>("Imagen")
-                        .HasMaxLength(200)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(200)");
+                b.Property<string>("Imagen")
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(200)");
 
-                    b.Property<string>("ImgMiniatura")
-                        .HasMaxLength(200)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(200)");
+                b.Property<string>("ImgMiniatura")
+                    .HasMaxLength(200)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(200)");
 
-                    b.Property<string>("Nombre")
-                        .IsRequired()
-                        .HasMaxLength(50)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(50)");
+                b.Property<string>("Nombre")
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(50)");
 
-                    b.Property<decimal>("Precio")
-                        .HasColumnType("numeric(15,0)");
+                b.Property<decimal>("Precio")
+                    .HasColumnType("numeric(15,0)");
 
-                    b.Property<string>("Sku")
-                        .IsRequired()
-                        .HasMaxLength(60)
-                        .IsUnicode(false)
-                        .HasColumnType("varchar(60)");
+                b.Property<string>("Sku")
+                    .IsRequired()
+                    .HasMaxLength(60)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(60)");
 
-                    b.Property<int>("Stock")
-                        .HasColumnType("int");
+                b.Property<int>("Stock")
+                    .HasColumnType("int");
 
-                    b.HasKey("IdProducto")
-                        .HasName("PK__TblProdu__09889210000CD310");
+                b.HasKey("IdProducto")
+                    .HasName("PK__TblProdu__09889210000CD310");
 
-                    b.ToTable("TblProducto", (string)null);
-                });
+                b.ToTable("TblProducto", (string)null);
+            });
+
+            modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.Autorizaciones", b =>
+            {
+                b.Property<string>("UserName")
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(30)");
+
+                b.Property<string>("PassworAuth")
+                    .HasMaxLength(30)
+                    .IsUnicode(false)
+                    .HasColumnType("varchar(30)");
+
+                b.HasKey("UserName")
+                    .HasName("PK__Autoriza__09889210000CD310");
+
+                b.ToTable("Autorizaciones", (string)null);
+            });
 
             modelBuilder.Entity("ValtikCA.Infrastructure.Persistence.ProductoCategorium", b =>
                 {

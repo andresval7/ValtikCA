@@ -32,6 +32,7 @@ builder.Services.AddTransient<IOrdenService, OrdenService>();
 builder.Services.AddTransient<IProductoCategoriaService, ProductoCategoriaService>();
 builder.Services.AddTransient<IProductoService, ProductoService>();
 builder.Services.AddTransient<IProductoXordenService, ProductoXordenService>();
+builder.Services.AddTransient<IAutorizacionesService, AutorizacionesService>();
 
 
 builder.Services.AddTransient<IProductoRepository, ProductoRepository>();
@@ -40,6 +41,8 @@ builder.Services.AddTransient<ICategoriaRepository, CategoriaRepository>();
 builder.Services.AddTransient<IProductoCategoriaRepository, ProductoCategoriaRepository>();
 builder.Services.AddTransient<IProductosXordenRepository, ProductosXordenRepository>();
 builder.Services.AddTransient<IOrdenRepository, OrdenRepository>();
+builder.Services.AddTransient<IAutorizacionesRepository, AutorizacionesRepository>();
+
 
 /*
 builder.Services.AddDbContext<CinemaContext>(optionsBuilder => optionsBuilder.UseSqlServer("name=ConnectionStrings:Cinema"));

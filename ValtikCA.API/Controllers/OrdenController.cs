@@ -38,11 +38,11 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request">Identificador de la orden a buscar</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{IdOrden}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(OrdenResponse))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Get([FromRoute] CreateOrdenRequest request)
+        public IActionResult Get([FromRoute] ReadOrdenRequest request)
         {
             return Ok(_service.GetOrdenById(request.IdOrden));
         }
@@ -80,7 +80,7 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{IdOrden}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

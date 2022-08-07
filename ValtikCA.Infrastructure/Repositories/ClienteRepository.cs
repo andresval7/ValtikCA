@@ -19,27 +19,45 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<Cliente> GetCliente()
         {
-            return _context.TblClientes;
+            return _context.Clientes;
         }
 
-        public Cliente GetClienteById(decimal  Id)
+        public Cliente GetClienteById(decimal Id)
         {
-            var clienteExistente = _context.TblClientes.
+            Cliente cliente = new Cliente();
+            var clienteExistente = _context.Clientes.
                 FirstOrDefault(x => x.IdCliente == Id);
-
-            return clienteExistente;
-
+            Console.WriteLine("El Id recibido es: " + Id);
+            //Console.WriteLine("El Id encontrado en clienteExistente es: "+clienteExistente.IdCliente);
+            if (clienteExistente != null)
+            {
+                cliente.Nombre1 = clienteExistente.Nombre1;
+                cliente.Nombre2 = clienteExistente.Nombre2;
+                cliente.Apellido1 = clienteExistente.Apellido1;
+                cliente.Apellido2 = clienteExistente.Apellido2;
+                cliente.Email = clienteExistente.Email;
+                cliente.Password1 = clienteExistente.Password1;
+                cliente.Direccion = clienteExistente.Direccion;
+                cliente.Telefono = clienteExistente.Telefono;
+                cliente.Ciudad = clienteExistente.Ciudad;
+                cliente.CodigoPostal = clienteExistente.CodigoPostal;
+                cliente.Provincia = clienteExistente.Provincia;
+                cliente.esEmpleado = clienteExistente.esEmpleado;
+                cliente.IdCliente = Id;
+                
+            }
+            return cliente;
         }
 
         public void InsertClienteById(Cliente cliente)
         {
-            _context.TblClientes.Add(cliente);
+            _context.Clientes.Add(cliente);
             _context.SaveChanges();
         }
 
         public void UpdateClienteById(Cliente cliente)
         {
-            var clienteExistente = _context.TblClientes
+            var clienteExistente = _context.Clientes
                 .FirstOrDefault(x => x.IdCliente == cliente.IdCliente);
             if (clienteExistente != null)
             {
@@ -61,7 +79,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void DeleteClienteById(decimal cliente)
         {
-            var clienteExistente = _context.TblClientes
+            var clienteExistente = _context.Clientes
                 .FirstOrDefault(x => x.IdCliente == cliente);
             if (clienteExistente != null)
             {

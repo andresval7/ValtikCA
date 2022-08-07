@@ -14,12 +14,12 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<Producto> GetProducto()
         {
-            return _context.TblProductos;
+            return _context.Productos;
         }
 
         public Producto GetProductoById(string Id)
         {
-                var productoExistente = _context.TblProductos.
+                var productoExistente = _context.Productos.
                     FirstOrDefault(x => x.IdProducto.Equals(Id));
 
                 return productoExistente;
@@ -28,13 +28,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void InsertProductoById(Producto producto)
         {
-            _context.TblProductos.Add(producto);
+            _context.Productos.Add(producto);
             _context.SaveChanges();
         }
 
         public void UpdateProductoById(Producto producto)
         {
-            var productoExistente = _context.TblProductos
+            var productoExistente = _context.Productos
                 .FirstOrDefault(x => x.IdProducto.Equals(producto.IdProducto));
             if (productoExistente != null)
             {
@@ -53,7 +53,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void DeleteProductoById(string producto)
         {
-            var productoExistente = _context.TblProductos
+            var productoExistente = _context.Productos
                 .FirstOrDefault(x => x.IdProducto.Equals(producto));
             if(productoExistente != null)
             {

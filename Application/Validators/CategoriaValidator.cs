@@ -12,9 +12,6 @@ namespace ValtikCA.Application.Validators
     {
         public CategoriaValidator()
         {
-            RuleFor(x => x.IdCategoria)
-                .NotEmpty()
-                    .WithMessage("El ID es requerido");
             RuleFor(x => x.Nombre).NotEmpty()
                     .WithMessage("El nombre es requerido");
 

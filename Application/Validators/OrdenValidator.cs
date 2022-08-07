@@ -12,9 +12,6 @@ namespace ValtikCA.Application.Validators
     {
         public OrdenValidator()
         {
-            RuleFor(x => x.IdOrden)
-                .NotEmpty()
-                    .WithMessage("El ID es requerido");
             RuleFor(x => x.IdCliente).NotEqual(0)
                     .WithMessage("El Id del cliente es requerido");
 

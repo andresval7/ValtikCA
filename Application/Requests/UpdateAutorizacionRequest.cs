@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace ValtikCA.Application.Requests
 {
-    public class ReadProductoRequest
+    public class UpdateAutorizacionRequest
     {
-        public string IdProducto { get; set; } = null!;
-        
+        public string UserName { get; set; } = null!;
+        public string PasswordAuth { get; set; } = null!;
     }
 }

@@ -14,12 +14,12 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public IEnumerable<Orden> GetOrden()
         {
-            return _context.TblOrdenes;
+            return _context.Ordenes;
         }
 
         public Orden GetOrdenById(decimal Id)
         {
-            var ordenExistente = _context.TblOrdenes.
+            var ordenExistente = _context.Ordenes.
                 FirstOrDefault(x => x.IdOrden == Id);
 
             return ordenExistente;
@@ -28,13 +28,13 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void InsertOrdenById(Orden orden)
         {
-            _context.TblOrdenes.Add(orden);
+            _context.Ordenes.Add(orden);
             _context.SaveChanges();
         }
 
         public void UpdateOrdenById(Orden orden)
         {
-            var ordenExistente = _context.TblOrdenes
+            var ordenExistente = _context.Ordenes
                 .FirstOrDefault(x => x.IdOrden == (orden.IdOrden));
             if (ordenExistente != null)
             {
@@ -51,7 +51,7 @@ namespace ValtikCA.Infrastructure.Repositories
 
         public void DeleteOrdenById(decimal orden)
         {
-            var ordenExistente = _context.TblOrdenes
+            var ordenExistente = _context.Ordenes
                 .FirstOrDefault(x => x.IdOrden == orden);
             if (ordenExistente != null)
             {

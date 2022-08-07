@@ -4,7 +4,10 @@ using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ValtikCA.Application.Interfaces;
 using ValtikCA.Application.Requests;
+using ValtikCA.Application.Responses;
+using ValtikCA.Domain.Entities;
 
 namespace ValtikCA.API.Controllers
 {
@@ -12,7 +15,14 @@ namespace ValtikCA.API.Controllers
     [ApiController]
     public class TokenController : ControllerBase
     {
-            [HttpPost]
+        private readonly IAutorizacionesService _service;
+
+        public TokenController(IAutorizacionesService service)
+        {
+            _service = service;
+        }
+
+        [HttpPost]
             public IActionResult GetToken(UserLoginRequest loginRequest)
             {
                 //Validar si el usuario existe en la BD y la contraseña es correcta
@@ -25,11 +35,16 @@ namespace ValtikCA.API.Controllers
                 return Ok(new { token });
             }
 
-
+            
             private bool ValidateUser(UserLoginRequest loginRequest)
             {
-                // TODO: Ir a la BD y validar el usuario
-                if (loginRequest.UserName == "admin" && loginRequest.Password == "abc123")
+            // TODO: Ir a la BD y validar el usuario
+                AutorizacionResponse autorizacionExistente = _service.GetAutorizacionByUser(loginRequest.UserName);
+                
+
+                //if (loginRequest.UserName == "admin" && loginRequest.PasswordAuth == "abc123")
+                if(autorizacionExistente.UserName == loginRequest.UserName 
+                    && autorizacionExistente.PasswordAuth == loginRequest.PasswordAuth)
                     return true;
 
                 return false;

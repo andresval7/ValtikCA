@@ -38,11 +38,11 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request">Identificador del cliente a buscar</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{IdCliente}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ClienteResponse))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Get([FromRoute] CreateClienteRequest request)
+        public IActionResult Get([FromRoute] ReadClienteRequest request)
         {
             return Ok(_service.GetClienteById(request.IdCliente));
         }
@@ -80,7 +80,7 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{IdCliente}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

@@ -38,7 +38,8 @@ namespace ValtikCA.Infrastructure.Migrations
                     Telefono = table.Column<decimal>(type: "numeric(18,0)", nullable: true),
                     Ciudad = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: true),
                     Provincia = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
-                    CodigoPostal = table.Column<decimal>(type: "numeric(10,0)", nullable: true)
+                    CodigoPostal = table.Column<decimal>(type: "numeric(10,0)", nullable: true),
+                    esEmpleado = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -62,6 +63,18 @@ namespace ValtikCA.Infrastructure.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK__TblProdu__09889210000CD310", x => x.IdProducto);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Autorizaciones",
+                columns: table => new
+                {
+                    UserName = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: false),
+                    PasswordAuth = table.Column<string>(type: "varchar(30)", unicode: false, maxLength: 30, nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK__Autoriza__09889210000CD310", x => x.UserName);
                 });
 
             migrationBuilder.CreateTable(
@@ -179,6 +192,9 @@ namespace ValtikCA.Infrastructure.Migrations
 
             migrationBuilder.DropTable(
                 name: "TblProducto");
+
+            migrationBuilder.DropTable(
+                name: "Autorizaciones");
 
             migrationBuilder.DropTable(
                 name: "TblCliente");

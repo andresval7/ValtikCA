@@ -33,7 +33,7 @@ namespace ValtikCA.Application.Services
         public CategoriaResponse GetCategoriaById(int id)
         {
             var categoria = _repository.GetCategoriaById(id);
-            var categoriaResponse = _mapper.Map<CategoriaResponse>(id);
+            var categoriaResponse = _mapper.Map<CategoriaResponse>(categoria);
             return categoriaResponse;
         }
 

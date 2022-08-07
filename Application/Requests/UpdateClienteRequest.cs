@@ -20,5 +20,6 @@ namespace ValtikCA.Application.Requests
         public string? Ciudad { get; set; }
         public string Provincia { get; set; } = null!;
         public decimal? CodigoPostal { get; set; }
+        public int esEmpleado { get; set; } 
     }
 }

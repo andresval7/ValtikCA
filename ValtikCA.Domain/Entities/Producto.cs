@@ -20,6 +20,7 @@ namespace ValtikCA.Domain.Entities
         public string? ImgMiniatura { get; set; }
         public string? Imagen { get; set; }
         public int Stock { get; set; }
+        
 
         public virtual ICollection<ProductoCategoria> ProductoCategoria { get; set; }
         public virtual ICollection<ProductosXorden> ProductosXordens { get; set; }

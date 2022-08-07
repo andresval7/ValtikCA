@@ -38,11 +38,11 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request">Identificador del producto a buscar</param>
         /// <returns></returns>
-        [HttpGet("{id}")]
+        [HttpGet("{IdProducto}")]
         [ProducesResponseType((int)HttpStatusCode.OK, Type = typeof(ProductoResponse))]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public IActionResult Get([FromRoute] CreateProductoRequest request)
+        public IActionResult Get([FromRoute] ReadProductoRequest request)
         {
             return Ok(_service.GetProductoById(request.IdProducto));
         }
@@ -80,7 +80,7 @@ namespace ValtikCA.API.Controllers
         /// </summary>
         /// <param name="request"></param>
         /// <returns></returns>
-        [HttpDelete("{id}")]
+        [HttpDelete("{IdProducto}")]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.Unauthorized)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]

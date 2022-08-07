@@ -12,11 +12,10 @@ namespace ValtikCA.Application.Services
         private readonly IOrdenRepository _repository;
         private readonly IMapper _mapper;
 
-
-
-        public void DeleteOrdenById(decimal idOrden)
+        public OrdenService(IOrdenRepository repository, IMapper mapper)
         {
-            _repository.DeleteOrdenById(idOrden);
+            _repository = repository;
+            _mapper = mapper;
         }
 
         public IEnumerable<OrdenResponse> GetOrden()
@@ -33,7 +32,6 @@ namespace ValtikCA.Application.Services
             return ordenResponse;
         }
 
-
         public void InsertOrdenById(CreateOrdenRequest request)
         {
             var orden = _mapper.Map<Orden>(request);
@@ -45,6 +43,10 @@ namespace ValtikCA.Application.Services
         {
             var orden = _mapper.Map<Orden>(request);
             _repository.UpdateOrdenById(orden);
+        }
+        public void DeleteOrdenById(decimal idOrden)
+        {
+            _repository.DeleteOrdenById(idOrden);
         }
     }
 }
